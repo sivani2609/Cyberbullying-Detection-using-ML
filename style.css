@@ -1,0 +1,33 @@
+body.bg-gradient {
+    background: linear-gradient(135deg, #0072ff, #00c6ff);
+    font-family: 'Poppins', sans-serif;
+  }
+  
+  .card {
+    background: #fff;
+    border: none;
+  }
+  
+  textarea {
+    resize: none;
+  }
+  
+  .btn {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  .alert {
+    border-radius: 12px;
+  }
+  
+  .alert-danger {
+    background-color: #ffdddd;
+    color: #d60000;
+  }
+  
+  .alert-success {
+    background-color: #e6ffee;
+    color: #008f00;
+  }
+  

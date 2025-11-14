@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyberbullying Detection</title>
+    <style>
+        body {
+            font-family: "Poppins", sans-serif;
+            background: linear-gradient(135deg, #00c6ff, #0072ff);
+            color: #333;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background: #fff;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        h1 {
+            color: #0072ff;
+            margin-bottom: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            height: 120px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            font-size: 16px;
+            resize: none;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: #0072ff;
+            color: #fff;
+            border: none;
+            padding: 12px 30px;
+            font-size: 16px;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #005fcc;
+        }
+
+        .result {
+            margin-top: 25px;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .non-bully {
+            background: #c8f7c5;
+            color: #1e5631;
+        }
+
+        .bully {
+            background: #ffb3b3;
+            color: #b30000;
+        }
+
+        .back {
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .back a {
+            color: #0072ff;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .back a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>💬 Cyberbullying Comment Detector</h1>
+        <p>Enter a comment below to check if it’s bullying or safe:</p>
+        <form method="POST" action="/predict">
+            <textarea name="comment" placeholder="Type your comment here..." required>{{ comment or '' }}</textarea>
+            <button type="submit">Detect</button>
+        </form>
+
+        {% if result %}
+            <div class="result {% if 'Non-Bully' in result %}non-bully{% else %}bully{% endif %}">
+                {{ result }}
+            </div>
+        {% endif %}
+
+        <div class="back">
+            <a href="/">← Logout</a>
+        </div>
+    </div>
+</body>
+</html>
